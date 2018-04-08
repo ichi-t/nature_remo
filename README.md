@@ -6,7 +6,7 @@ Nature Remo API client
 
 
 ```ruby
-gem 'nature', :git => 'https://github.com/ichi-t/nature.git'
+gem 'nature_remo', :git => 'https://github.com/ichi-t/nature_remo.git'
 ```
 
 And then execute:
@@ -16,7 +16,7 @@ And then execute:
 Or install it yourself as:
 
 	$ gem install specific_install
-    $ gem specific_install nature_rem
+    $ gem specific_install nature_remo
 
 ## Usage
 
