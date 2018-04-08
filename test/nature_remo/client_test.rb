@@ -7,6 +7,6 @@ class ClientTest < Minitest::Test
 
   def test_with_token
     client = NatureRemo::Client.new
-    assert_equal '', client.devices
+    assert_equal 200, client.users.status
   end
 end
