@@ -34,4 +34,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest", "~> 5.0"
   spec.add_runtime_dependency "faraday", "~> 0.14.0"
   spec.add_runtime_dependency "thor", "~> 0.20.0"
+  spec.add_runtime_dependency "launchy", "~> 2.4.3"
 end

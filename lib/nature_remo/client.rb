@@ -1,3 +1,4 @@
+require 'launchy'
 require 'faraday'
 require 'json'
 
@@ -35,8 +36,12 @@ module NatureRemo
     def get_token
       return ENV['NATURE_TOKEN'] if ENV['NATURE_TOKEN'] == true
 
-      json = JSON(File.read(File.expand_path('~/.nature')))
-      json['token']
+      begin
+        json = JSON(File.read(File.expand_path('~/.nature')))
+        return json['token']
+      rescue
+        Launchy.open 'https://home.nature.global'
+      end
     end
 
   end
