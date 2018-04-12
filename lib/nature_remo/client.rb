@@ -26,8 +26,11 @@ module NatureRemo
 
     def appliances appliance = nil
       @client.get do |req|
-        req.url '/1/appliances' if appliance.nil?
-        req.url "/1/appliances/#{appliance}/signals"
+        if appliance.nil?
+          req.url '/1/appliances'
+        else
+          req.url "/1/appliances/#{appliance}/signals"
+        end
       end
 
     end
