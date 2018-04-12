@@ -13,6 +13,11 @@ module NatureRemo
       p JSON.parse(client.users.body)["nickname"]
     end
 
+    desc 'appliances', 'get appliance list'
+    def appliances
+      p JSON.parse(client.appliances.body)
+    end
+
     private
     def client
       @client ||= NatureRemo::Client.new
