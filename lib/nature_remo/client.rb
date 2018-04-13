@@ -49,9 +49,17 @@ module NatureRemo
       begin
         json = JSON(File.read(File.expand_path('~/.nature')))
         return json['token']
-      rescue
-        Launchy.open 'https://home.nature.global'
+      rescue => e
+        set_token
       end
+    end
+
+    def set_token
+      Launchy.open 'https://home.nature.global'
+      print 'input your token:'
+      token = STDIN.gets.to_s.chomp
+      File.write(File.expand_path('~/.nature'), JSON.dump({token: token}))
+      return token
     end
 
   end
