@@ -58,6 +58,8 @@ module NatureRemo
       Launchy.open 'https://home.nature.global'
       print 'input your token:'
       token = STDIN.gets.to_s.chomp
+      raise "Invalid Token" unless token.length == 87
+      puts 'your token >> ~/.nature'
       File.write(File.expand_path('~/.nature'), JSON.dump({token: token}))
       return token
     end
