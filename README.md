@@ -1,4 +1,4 @@
-# NatureRemo [WIP]
+# NatureRemo
 
 Nature Remo API client
 
