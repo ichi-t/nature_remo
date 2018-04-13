@@ -15,12 +15,14 @@ module NatureRemo
 
     desc 'appliances', 'get appliance list'
     def appliances
-      p JSON.parse(client.appliances.body)
+      JSON.parse(client.appliances.body).each_with_index do |appliance, i|
+        puts "#{i}: #{appliance["nickname"]}" 
+      end
     end
 
     private
     def client
-      @client ||= NatureRemo::Client.new
+      client ||= NatureRemo::Client.new
     end
   end
 end
