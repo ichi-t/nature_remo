@@ -21,13 +21,13 @@ module NatureRemo
         signal = get_signal_id(id, action.to_i)
         p client.send_signal(signal)
       elsif appliance_num
-        JSON.parse(client.appliances.body)[appliance_num.to_i]["signals"].each_with_index do |signal,i|
+        appliances_body[appliance_num.to_i]["signals"].each_with_index do |signal,i|
           puts "#{i}: #{signal["name"]}"
         end
         return
       end
       
-      JSON.parse(client.appliances.body).each_with_index do |appliance, i|
+      appliances_body.each_with_index do |appliance, i|
         puts "#{i}: #{appliance["nickname"]}" 
       end
     end
@@ -37,8 +37,12 @@ module NatureRemo
       client ||= NatureRemo::Client.new
     end
 
+    def appliances_body
+      appliances ||= JSON.parse(client.appliances.body)
+    end
+
     def get_appliance_id num
-      JSON.parse(client.appliances.body)[num]["id"]
+      appliances_body[num]["id"]
     end
 
     def get_signal_id id, num
