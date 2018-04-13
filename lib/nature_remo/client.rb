@@ -10,7 +10,6 @@ module NatureRemo
       @token = token || get_token
       @client = Faraday.new :url => 'https://api.nature.global'
       @client.headers['Authorization'] = "Bearer #{@token}"
-      # @appliances = JSON.parse(@client.appliances.body)
       
     end
 

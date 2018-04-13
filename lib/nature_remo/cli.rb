@@ -5,12 +5,12 @@ module NatureRemo
   class Cli < Thor
     desc 'devices', 'find all devices'
     def devices
-      p JSON.parse(client.devices.body)
+      puts JSON.parse(client.devices.body)
     end
 
     desc 'me', 'print nickname'
     def me
-      p JSON.parse(client.users.body)["nickname"]
+      puts JSON.parse(client.users.body)["nickname"]
     end
 
     desc 'appliances ID SIGNAL', 'Access a appliance'
@@ -19,7 +19,7 @@ module NatureRemo
       if appliance_num && action
         id = get_appliance_id(appliance_num.to_i)
         signal = get_signal_id(id, action.to_i)
-        p client.send_signal(signal)
+        client.send_signal(signal)
       elsif appliance_num
         appliances_body[appliance_num.to_i]["signals"].each_with_index do |signal,i|
           puts "#{i}: #{signal["name"]}"
