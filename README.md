@@ -17,10 +17,35 @@ Or install it yourself as:
 
 	$ gem install specific_install
     $ gem specific_install nature_remo
-
+	
 ## Usage
 
-TODO: Write usage instructions here
+	Commands:
+		natureremo appliances ID SIGNAL  # Access a appliance
+		natureremo devices               # find all devices
+		natureremo help [COMMAND]        # Describe available commands or one specific command
+		natureremo me                    # print nickname
+
+### example
+
+show appliances list
+
+	$ natureremo appliances
+	0: スピーカー
+	1: シーリングライト
+	
+show signal list
+
+	$ natureremo appliances 1
+	0: 全光
+	1: シーン
+	2: 常夜灯
+	3: 消灯
+
+send signal
+
+	$ natureremo appliances 1 0
+	
 
 <!-- ## Development -->
 
