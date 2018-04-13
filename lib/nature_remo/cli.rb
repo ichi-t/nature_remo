@@ -19,16 +19,17 @@ module NatureRemo
       if appliance_num && action
         id = get_appliance_id(appliance_num.to_i)
         signal = get_signal_id(id, action.to_i)
+        puts 'sending...'
         client.send_signal(signal)
+        puts 'done'
       elsif appliance_num
         appliances_body[appliance_num.to_i]["signals"].each_with_index do |signal,i|
           puts "#{i}: #{signal["name"]}"
         end
-        return
-      end
-      
-      appliances_body.each_with_index do |appliance, i|
-        puts "#{i}: #{appliance["nickname"]}" 
+      else
+        appliances_body.each_with_index do |appliance, i|
+          puts "#{i}: #{appliance["nickname"]}" 
+        end
       end
     end
 
