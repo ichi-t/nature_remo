@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'thor'
 require 'json'
 
@@ -31,6 +32,15 @@ module NatureRemo
           puts "#{i}: #{appliance["nickname"]}" 
         end
       end
+    end
+
+    desc 'temp', 'Get temperture and humidity'
+    def temp
+      value = client.events
+      # value << client.events["te"]["val"]
+      # value << client.events["hu"]["val"]
+      puts "Temperture: #{value["te"]["val"]}℃"
+      puts "Humidity:   #{value["hu"]["val"]}%"
     end
 
     private
