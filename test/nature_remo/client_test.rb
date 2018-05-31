@@ -5,8 +5,17 @@ class ClientTest < Minitest::Test
     refute_nil ::NatureRemo::VERSION
   end
 
-  def test_with_token
-    client = NatureRemo::Client.new
-    assert_equal 200, client.users.status
+  def setup
+    @client = NatureRemo::Client.new
   end
+
+  def test_with_token
+    assert_equal 200, @client.users.status
+  end
+
+  def test_get_temperture
+    assert_equal 1.class, @client.get_temp.class
+    assert_equal 1.class, @client.get_humi.class
+  end
+
 end
