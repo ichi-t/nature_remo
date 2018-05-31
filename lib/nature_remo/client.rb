@@ -46,6 +46,14 @@ module NatureRemo
       JSON.parse(self.devices.body)[0]["newest_events"]
     end
 
+    def get_temp
+      self.events["te"]["val"].to_i
+    end
+
+    def get_humi
+      self.events["hu"]["val"].to_i
+    end
+
     def get_token
       return ENV['NATURE_TOKEN'] if ENV['NATURE_TOKEN']
 
