@@ -27,15 +27,17 @@ Or install it yourself as:
 		natureremo help [COMMAND]        # Describe available commands or one specific command
 		natureremo me                    # print nickname
 
-### example
+### Example
 
-show appliances list
+#### Control appliance
+
+Show appliances list
 
 	$ natureremo appliances
 	0: スピーカー
 	1: シーリングライト
 	
-show signal list
+Show signal list
 
 	$ natureremo appliances 1
 	0: 全光
@@ -43,10 +45,13 @@ show signal list
 	2: 常夜灯
 	3: 消灯
 
-send signal
+Send signal
 
 	$ natureremo appliances 1 0
 	
+#### Control air conditioner
+
+	$ natureremo aircon [mode] [temperture] [options]
 
 <!-- ## Development -->
 

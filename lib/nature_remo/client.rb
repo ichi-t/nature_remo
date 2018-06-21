@@ -42,6 +42,17 @@ module NatureRemo
       end
     end
 
+    def aircon_setting appliance, mode = nil, temp = nil, volume = nil
+      @client.post do |req|
+        req.url "/1/appliances/#{appliance}/aircon_settings"
+        req.body = {
+          :temperature => "#{temp}",
+          :operation_mode => "#{mode}",
+          :air_volume => "#{volume}"
+        }
+      end
+    end
+
     def events
       JSON.parse(self.devices.body)[0]["newest_events"]
     end

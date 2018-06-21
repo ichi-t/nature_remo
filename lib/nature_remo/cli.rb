@@ -24,6 +24,9 @@ module NatureRemo
         client.send_signal(signal)
         puts 'done'
       elsif appliance_num
+        if appliances_body[appliance_num.to_i]["type"] == "AC"
+          puts "Use 'aircon' command."
+        end
         appliances_body[appliance_num.to_i]["signals"].each_with_index do |signal,i|
           puts "#{i}: #{signal["name"]}"
         end
@@ -34,11 +37,21 @@ module NatureRemo
       end
     end
 
+    desc 'aircon', 'Control Air conditioner'
+    def aircon mode = nil, temp = nil, volume = nil
+      aircon_id = []
+      appliances_body.each_with_index do |a, i|
+        aircon_id << get_appliance_id(i) if a["type"] == "AC"
+      end
+      if aircon_id.length == 1
+        client.aircon_setting aircon_id.first, temp, mode, volume
+        # This method supports only one air conditioner
+      end
+    end
+
     desc 'temp', 'Get temperture and humidity'
     def temp
       value = client.events
-      # value << client.events["te"]["val"]
-      # value << client.events["hu"]["val"]
       puts "Temperture: #{value["te"]["val"]}℃"
       puts "Humidity:   #{value["hu"]["val"]}%"
     end
