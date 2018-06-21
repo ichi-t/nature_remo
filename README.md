@@ -22,10 +22,12 @@ Or install it yourself as:
 ## Usage
 
 	Commands:
-		natureremo appliances ID SIGNAL  # Access a appliance
-		natureremo devices               # find all devices
-		natureremo help [COMMAND]        # Describe available commands or one specific command
-		natureremo me                    # print nickname
+	natureremo aircon MODE TEMP      # Control Air conditioner
+	natureremo appliances ID SIGNAL  # Access a appliance
+	natureremo devices               # find all devices
+	natureremo help [COMMAND]        # Describe available commands or one specific command
+	natureremo me                    # print nickname
+	natureremo temp                  # Get temperture and humidity
 
 ### Example
 
