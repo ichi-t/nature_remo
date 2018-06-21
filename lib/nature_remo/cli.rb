@@ -24,6 +24,9 @@ module NatureRemo
         client.send_signal(signal)
         puts 'done'
       elsif appliance_num
+        if appliances_body[appliance_num.to_i]["type"] == "AC"
+          puts "Use 'aircon' command."
+        end
         appliances_body[appliance_num.to_i]["signals"].each_with_index do |signal,i|
           puts "#{i}: #{signal["name"]}"
         end
@@ -31,6 +34,18 @@ module NatureRemo
         appliances_body.each_with_index do |appliance, i|
           puts "#{i}: #{appliance["nickname"]}" 
         end
+      end
+    end
+
+    desc 'aircon', 'Control Air conditioner'
+    def aircon mode = nil, temp = nil, volume = nil
+      aircon_id = []
+      appliances_body.each_with_index do |a, i|
+        # p get_appliance_id(i) if i == 2
+        aircon_id << get_appliance_id(i) if a["type"] == "AC"
+      end
+      if aircon_id.length == 1
+        client.aircon_setting aircon_id.first, temp, mode, volume
       end
     end
 
