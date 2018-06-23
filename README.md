@@ -19,7 +19,7 @@ Or install it yourself as:
 
     $ gem install nature_remo
 	
-## Usage
+## CLI Usage
 
 	Commands:
 	natureremo aircon MODE TEMP      # Control Air conditioner
@@ -64,6 +64,30 @@ Send signal
 <!-- ## Contributing -->
 
 <!-- Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/nature_remo. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct. -->
+
+## TODO
+
+- [X] GET /1/users/me
+- [ ] POST /1/users/me
+- [ ] GET /1/devices
+- [ ] POST /1/detectappliance
+- [X] GET /1/appliances
+- [ ] POST /1/appliances
+- [ ] POST /1/appliance_orders
+- [ ] POST /1/appliances/{appliance}/delete
+- [ ] POST /1/appliances/{appliance}
+- [X] POST /1/appliances/{appliance}/aircon_settings
+- [X] GET /1/appliances/{appliance}/signals
+- [ ] POST /1/appliances/{appliance}/signals
+- [ ] POST /1/appliances/{appliance}/signal_orders
+- [ ] POST /1/signals/{signal}
+- [ ] POST /1/signals/{signal}/delete
+- [X] POST /1/signals/{signal}/send
+- [ ] POST /1/devices/{device}
+- [ ] POST /1/devices/{device}/delete
+- [ ] POST /1/devices/{device}/temperature_offset
+- [ ] POST /1/devices/{device}/humidity_offset
+
 
 ## License
 
