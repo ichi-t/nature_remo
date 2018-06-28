@@ -37,7 +37,7 @@ module NatureRemo
       end
     end
 
-    desc 'aircon MODE TEMP', 'Control Air conditioner'
+    desc 'aircon TEMP MODE', 'Control Air conditioner'
     def aircon mode = nil, temp = nil, volume = nil
       aircon_id = []
       appliances_body.each_with_index do |a, i|

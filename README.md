@@ -22,7 +22,7 @@ Or install it yourself as:
 ## CLI Usage
 
 	Commands:
-	natureremo aircon MODE TEMP      # Control Air conditioner
+	natureremo aircon TEMP MODE      # Control Air conditioner
 	natureremo appliances ID SIGNAL  # Access a appliance
 	natureremo devices               # find all devices
 	natureremo help [COMMAND]        # Describe available commands or one specific command
@@ -53,7 +53,7 @@ Send signal
 	
 #### Control air conditioner
 
-	$ natureremo aircon [mode] [temperture] [options]
+	$ natureremo aircon [temperture] [mode] [options]
 
 <!-- ## Development -->
 
