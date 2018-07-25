@@ -42,7 +42,7 @@ module NatureRemo
       end
     end
 
-    def aircon_setting appliance, mode = nil, temp = nil, volume = nil
+    def aircon_setting appliance, temp = nil, mode = nil, volume = nil
       @client.post do |req|
         req.url "/1/appliances/#{appliance}/aircon_settings"
         req.body = {

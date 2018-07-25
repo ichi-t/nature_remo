@@ -38,14 +38,21 @@ module NatureRemo
     end
 
     desc 'aircon TEMP MODE', 'Control Air conditioner'
-    def aircon mode = nil, temp = nil, volume = nil
+    def aircon temp = nil, mode = nil, volume = nil
+      if temp.match /[a-z]/
+        mode = temp
+        temp = nil
+      end
+
       aircon_id = []
       appliances_body.each_with_index do |a, i|
         aircon_id << get_appliance_id(i) if a["type"] == "AC"
       end
+
       if aircon_id.length == 1
         client.aircon_setting aircon_id.first, temp, mode, volume
-        # This method supports only one air conditioner
+      else
+        puts "This method supports only one air conditioner"
       end
     end
 
