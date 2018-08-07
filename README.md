@@ -1,6 +1,7 @@
 # NatureRemo
 
 [![Build Status](https://travis-ci.org/ichi-t/nature_remo.svg?branch=master)](https://travis-ci.org/ichi-t/nature_remo)
+[![Gem Version](https://badge.fury.io/rb/nature_remo.svg)](https://badge.fury.io/rb/nature_remo)
 
 Nature Remo API client
 
