@@ -6,11 +6,10 @@ module NatureRemo
   class Client
     # nature-remo api http client
 
-    def initialize token = nil
+    def initialize(token = nil)
       @token = token || get_token
-      @client = Faraday.new :url => 'https://api.nature.global'
+      @client = Faraday.new url: 'https://api.nature.global'
       @client.headers['Authorization'] = "Bearer #{@token}"
-      
     end
 
     def users
@@ -25,7 +24,7 @@ module NatureRemo
       end
     end
 
-    def appliances appliance = nil
+    def appliances(appliance = nil)
       @client.get do |req|
         if appliance.nil?
           req.url '/1/appliances'
@@ -35,34 +34,34 @@ module NatureRemo
       end
     end
 
-    def send_signal signal
+    def send_signal(signal)
       @client.post do |req|
         req.url "/1/signals/#{signal}/send"
-        req.body = { :name => "#{signal}" }
+        req.body = { name: signal.to_s }
       end
     end
 
-    def aircon_setting appliance, temp = nil, mode = nil, volume = nil
+    def aircon_setting(appliance, temp = nil, mode = nil, volume = nil)
       @client.post do |req|
         req.url "/1/appliances/#{appliance}/aircon_settings"
         req.body = {
-          :temperature => "#{temp}",
-          :operation_mode => "#{mode}",
-          :air_volume => "#{volume}"
+          temperature: temp.to_s,
+          operation_mode: mode.to_s,
+          air_volume: volume.to_s
         }
       end
     end
 
     def events
-      JSON.parse(self.devices.body)[0]["newest_events"]
+      JSON.parse(devices.body)[0]['newest_events']
     end
 
     def get_temp
-      self.events["te"]["val"].to_i
+      events['te']['val'].to_i
     end
 
     def get_humi
-      self.events["hu"]["val"].to_i
+      events['hu']['val'].to_i
     end
 
     def get_token
@@ -71,7 +70,7 @@ module NatureRemo
       begin
         json = JSON(File.read(File.expand_path('~/.nature')))
         return json['token']
-      rescue => e
+      rescue StandardError => e
         set_token
       end
     end
@@ -80,11 +79,10 @@ module NatureRemo
       Launchy.open 'https://home.nature.global'
       print 'input your token:'
       token = STDIN.gets.to_s.chomp
-      raise "Invalid Token" unless token.length == 87
+      raise 'Invalid Token' unless token.length == 87
       puts 'your token >> ~/.nature'
-      File.write(File.expand_path('~/.nature'), JSON.dump({token: token}))
-      return token
+      File.write(File.expand_path('~/.nature'), JSON.dump(token: token))
+      token
     end
-
   end
 end

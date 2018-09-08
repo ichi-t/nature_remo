@@ -1,4 +1,4 @@
-$LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
-require "nature_remo"
+$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
+require 'nature_remo'
 
-require "minitest/autorun"
+require 'minitest/autorun'
