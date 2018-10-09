@@ -20,6 +20,26 @@ Or install it yourself as:
 
     $ gem install nature_remo
 	
+## Usage
+	
+```ruby
+require 'nature_remo'
+
+client = NatureRemo::Client.new(<token>)
+
+# show username
+client.users
+
+# show nature_remo device lists
+client.devices
+
+# show appliances and signal lists
+client.appliances
+
+# send signal
+client.send_signal(<signal id>)
+```
+
 ## CLI Usage
 
 	Commands:
