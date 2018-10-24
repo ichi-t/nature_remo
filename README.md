@@ -30,6 +30,9 @@ client = NatureRemo::Client.new(<token>)
 # show username
 client.users
 
+# get temperture
+client.get_temp
+
 # show nature_remo device lists
 client.devices
 
