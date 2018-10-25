@@ -17,7 +17,7 @@ class ClientTest < Minitest::Test
   end
 
   def test_get_temperture
-    assert_equal 1.class, @client.get_temp.class
-    assert_equal 1.class, @client.get_humi.class
+    assert_equal Float, @client.get_temp.class
+    assert_equal Float, @client.get_humi.class
   end
 end

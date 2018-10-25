@@ -57,11 +57,11 @@ module NatureRemo
     end
 
     def get_temp
-      events['te']['val'].to_i
+      events['te']['val'].to_f
     end
 
     def get_humi
-      events['hu']['val'].to_i
+      events['hu']['val'].to_f
     end
 
     def get_token
