@@ -30,7 +30,7 @@ client = NatureRemo::Client.new(<token>)
 # show username
 client.users
 
-# get temperture
+# get temperature
 client.get_temp
 
 # show nature_remo device lists
@@ -51,7 +51,7 @@ client.send_signal(<signal id>)
 	natureremo devices               # find all devices
 	natureremo help [COMMAND]        # Describe available commands or one specific command
 	natureremo me                    # print nickname
-	natureremo temp                  # Get temperture and humidity
+	natureremo temp                  # Get temperature and humidity
 
 ### Example
 
@@ -77,7 +77,7 @@ Send signal
 	
 #### Control air conditioner
 
-	$ natureremo aircon [temperture] [mode] [options]
+	$ natureremo aircon [temperature] [mode] [options]
 
 <!-- ## Development -->
 

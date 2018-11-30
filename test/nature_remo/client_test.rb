@@ -16,7 +16,7 @@ class ClientTest < Minitest::Test
     assert_equal 200, @client.users.status
   end
 
-  def test_get_temperture
+  def test_get_temperature
     assert_equal Float, @client.get_temp.class
     assert_equal Float, @client.get_humi.class
   end
