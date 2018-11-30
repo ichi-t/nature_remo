@@ -54,10 +54,10 @@ module NatureRemo
       end
     end
 
-    desc 'temp', 'Get temperture and humidity'
+    desc 'temp', 'Get temperature and humidity'
     def temp
       value = client.events
-      puts "Temperture: #{value['te']['val']}℃"
+      puts "Temperature: #{value['te']['val']}℃"
       puts "Humidity:   #{value['hu']['val']}%"
     end
 
