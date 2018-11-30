@@ -34,11 +34,16 @@ module NatureRemo
       end
     end
 
-    def send_signal(signal)
-      @client.post do |req|
-        req.url "/1/signals/#{signal}/send"
-        req.body = { name: signal.to_s }
+    def send_signal(signal, interval: 0, times: 1)
+      results = []
+      times.times do |time|
+        sleep(interval.to_f / 1000) if time != 0
+        results << @client.post do |req|
+          req.url "/1/signals/#{signal}/send"
+          req.body = { name: signal.to_s }
+        end
       end
+      results
     end
 
     def aircon_setting(appliance, temp = nil, mode = nil, volume = nil)

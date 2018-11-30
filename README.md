@@ -41,6 +41,12 @@ client.appliances
 
 # send signal
 client.send_signal(<signal id>)
+
+# send a signal at intervals
+#   [OPTIONAL]
+#   interval: How long do you want to wait to send next signal?(millisec)
+#   times: How many times do you want to send signals?
+client.send_signal(<signal id>, interval: 500, times: 10)
 ```
 
 ## CLI Usage
