@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'thor'
 require 'json'
 
@@ -64,11 +65,11 @@ module NatureRemo
     private
 
     def client
-      client ||= NatureRemo::Client.new
+      @client ||= NatureRemo::Client.new
     end
 
     def appliances_body
-      appliances ||= JSON.parse(client.appliances.body)
+      @appliances ||= JSON.parse(client.appliances.body)
     end
 
     def get_appliance_id(num)
