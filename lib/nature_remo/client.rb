@@ -69,6 +69,10 @@ module NatureRemo
       events['hu']['val'].to_f
     end
 
+    def get_illu
+      events['il']['val'].to_f
+    end
+
     def get_token
       return ENV['NATURE_TOKEN'] if ENV['NATURE_TOKEN']
 

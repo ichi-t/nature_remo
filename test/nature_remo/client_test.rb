@@ -18,6 +18,13 @@ class ClientTest < Minitest::Test
 
   def test_get_temperature
     assert_equal Float, @client.get_temp.class
+  end
+
+  def test_get_humidity
     assert_equal Float, @client.get_humi.class
+  end
+
+  def test_get_illumination
+    assert_equal Float, @client.get_illu.class
   end
 end
