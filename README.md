@@ -58,6 +58,7 @@ client.send_signal(<signal id>, interval: 500, times: 10)
 	natureremo help [COMMAND]        # Describe available commands or one specific command
 	natureremo me                    # print nickname
 	natureremo temp                  # Get temperature and humidity
+	natureremo illu                  # Get illumination
 
 ### Example
 

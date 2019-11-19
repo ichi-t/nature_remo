@@ -62,6 +62,12 @@ module NatureRemo
       puts "Humidity:   #{value['hu']['val']}%"
     end
 
+    desc 'illu', 'Get illumination'
+    def illu
+      value = client.events
+      puts "Illumination: #{value['il']['val']}"
+    end
+
     private
 
     def client
