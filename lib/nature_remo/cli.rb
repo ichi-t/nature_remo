@@ -55,6 +55,60 @@ module NatureRemo
       end
     end
 
+    desc 'aircon_off', 'Turn off air conditioner'
+    def aircon_off()
+      aircon_id = []
+      appliances_body.each_with_index do |a, i|
+        aircon_id << get_appliance_id(i) if a['type'] == 'AC'
+      end
+
+      if aircon_id.length == 1
+        client.aircon_off aircon_id.first
+      else
+        puts 'This method supports only one air conditioner'
+      end
+    end
+
+    desc 'aircon_on', 'Turn on air conditioner'
+    def aircon_on()
+      aircon_id = []
+      appliances_body.each_with_index do |a, i|
+        aircon_id << get_appliance_id(i) if a['type'] == 'AC'
+      end
+
+      if aircon_id.length == 1
+        client.aircon_on aircon_id.first
+      else
+        puts 'This method supports only one air conditioner'
+      end
+    end
+
+    desc 'aircon_change_temperature', 'Change the temperature of the air conditioner'
+    def aircon_change_temperature(difference)
+      diff = difference.to_i
+      return if diff == 0
+
+      aircon_id = []
+      appliance = nil
+      appliances_body.each_with_index do |a, i|
+        appliance = a
+        aircon_id << get_appliance_id(i) if a['type'] == 'AC'
+      end
+
+      if aircon_id.length == 1
+        current_temperature = appliance["settings"]["temp"].to_i
+        if current_temperature != 0
+          client.aircon_setting aircon_id.first, current_temperature + diff
+
+          puts "Temperature set to #{current_temperature + diff}"
+        else
+          puts 'Could not retrieve the air conditioner currently set temperature'
+        end
+      else
+        puts 'This method supports only one air conditioner'
+      end
+    end
+
     desc 'temp', 'Get temperature and humidity'
     def temp
       value = client.events

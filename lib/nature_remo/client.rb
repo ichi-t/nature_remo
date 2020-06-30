@@ -46,6 +46,24 @@ module NatureRemo
       results
     end
 
+    def aircon_on(appliance)
+      @client.post do |req|
+        req.url "/1/appliances/#{appliance}/aircon_settings"
+        req.body = {
+          button: ""
+        }
+      end
+    end
+
+    def aircon_off(appliance)
+      @client.post do |req|
+        req.url "/1/appliances/#{appliance}/aircon_settings"
+        req.body = {
+          button: "power-off"
+        }
+      end
+    end
+
     def aircon_setting(appliance, temp = nil, mode = nil, volume = nil)
       @client.post do |req|
         req.url "/1/appliances/#{appliance}/aircon_settings"

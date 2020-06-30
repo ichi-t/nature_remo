@@ -86,6 +86,12 @@ Send signal
 
 	$ natureremo aircon [temperature] [mode] [options]
 
+	$ natureremo aircon_off
+	$ natureremo aircon_on
+
+	$ natureremo aircon_change_temperature +1
+	$ natureremo aircon_change_temperature -1
+
 <!-- ## Development -->
 
 <!-- After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment. -->
