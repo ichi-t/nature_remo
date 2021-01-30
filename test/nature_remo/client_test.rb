@@ -8,7 +8,7 @@ class ClientTest < Minitest::Test
     WebMock.stub_request(:get, "https://api.nature.global/1/devices").
       to_return(
         status: 200,
-        body: "[{\"newest_events\":{\"hu\":{\"val\":50,\"created_at\":\"dummy\"},\"il\":{\"val\":57.2,\"created_at\":\"dummy\"},\"te\":{\"val\":21.2,\"created_at\":\"dummy\"}}}]"
+        body: "[{\"firmware_version\":\"Remo/1.0.69-gbbcc0de\",\"newest_events\":{\"hu\":{\"val\":50,\"created_at\":\"dummy\"},\"il\":{\"val\":57.2,\"created_at\":\"dummy\"},\"te\":{\"val\":21.2,\"created_at\":\"dummy\"}}}]"
       )
   end
 
