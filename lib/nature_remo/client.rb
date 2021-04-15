@@ -75,8 +75,12 @@ module NatureRemo
       end
     end
 
+    def remo
+      JSON.parse(devices.body).find { |device| device['firmware_version'].match(/Remo\/\d+\.\d+\.\d+-[a-z0-9]+/) }
+    end
+
     def events
-      JSON.parse(devices.body)[0]['newest_events']
+      remo['newest_events']
     end
 
     def get_temp
