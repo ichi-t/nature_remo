@@ -28,4 +28,6 @@ jobs:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run tests
+      env:
+        NATURE_TOKEN: ${{ secrets.NATURE_TOKEN }}
       run: bundle exec rake
