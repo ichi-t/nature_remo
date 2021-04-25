@@ -60,6 +60,10 @@ client.send_signal(<signal id>, interval: 500, times: 10)
 	natureremo temp                  # Get temperature and humidity
 	natureremo illu                  # Get illumination
 
+### CLI with Docker
+
+	docker run --rm -e NATURE_TOKEN='<nature_token>' taisukeichimura/natureremo --help
+
 ### Example
 
 #### Control appliance
