@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nature_remo (0.5.1)
+    nature_remo (0.6.0)
       faraday (~> 2.3.0)
       launchy (~> 2.5.0)
       thor (~> 1.2.1)
