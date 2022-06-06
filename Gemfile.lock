@@ -1,31 +1,33 @@
 PATH
   remote: .
   specs:
-    nature_remo (0.5.1)
-      faraday (~> 0.17.0)
-      launchy (~> 2.4.3)
-      thor (~> 0.20.3)
+    nature_remo (0.6.0)
+      faraday (~> 2.3.0)
+      launchy (~> 2.5.0)
+      thor (~> 1.2.1)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.7.0)
+    addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
-    crack (0.4.3)
-      safe_yaml (~> 1.0.0)
-    faraday (0.17.4)
-      multipart-post (>= 1.2, < 3)
-    hashdiff (1.0.0)
-    launchy (2.4.3)
-      addressable (~> 2.3)
-    minitest (5.13.0)
-    multipart-post (2.1.1)
-    public_suffix (4.0.1)
-    rake (13.0.1)
-    safe_yaml (1.0.5)
-    thor (0.20.3)
-    webmock (3.7.6)
-      addressable (>= 2.3.6)
+    crack (0.4.5)
+      rexml
+    faraday (2.3.0)
+      faraday-net_http (~> 2.0)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (2.0.3)
+    hashdiff (1.0.1)
+    launchy (2.5.0)
+      addressable (~> 2.7)
+    minitest (5.15.0)
+    public_suffix (4.0.7)
+    rake (13.0.6)
+    rexml (3.2.5)
+    ruby2_keywords (0.0.5)
+    thor (1.2.1)
+    webmock (3.14.0)
+      addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
 
@@ -33,11 +35,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 2.0.2)
-  minitest (~> 5.13.0)
+  bundler (~> 2.3.14)
+  minitest (~> 5.15.0)
   nature_remo!
-  rake (~> 13.0.1)
-  webmock (~> 3.7.6)
+  rake (~> 13.0.6)
+  webmock (~> 3.14.0)
 
 BUNDLED WITH
-   2.0.2
+   2.3.14
